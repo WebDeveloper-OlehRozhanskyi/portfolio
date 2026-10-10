@@ -65,12 +65,7 @@ export default defineConfig({
    avif: { quality: 70 },
    includePublic: false,
   }),
-  htmlImgToPicture({
-   formats: ['avif', 'webp'],
-   quality: 70,
-   isRetinaSupport: true,
-   lazyLoading: true,
-  }),
+  htmlImgToPicture({ formats: ['avif', 'webp'], quality: 70 }),
   createSvgIconsPlugin({
    iconDirs: [path.resolve(process.cwd(), 'src/images/icons')],
    symbolId: 'icon-[name]',
@@ -84,7 +79,9 @@ export default defineConfig({
      { name: 'removeDesc', active: true },
      {
       name: 'removeAttrs',
-      params: { attrs: ['fill', 'stroke', 'style', 'class', 'data-name'] },
+      params: {
+       attrs: ['fill', 'stroke', 'style', 'class', 'data-name', 'role'],
+      },
      },
      { name: 'removeDimensions', active: true },
      { name: 'removeViewBox', active: false },

@@ -4,7 +4,6 @@ html {
  scroll-padding-top: rem(90);
  scrollbar-color: var(--color-600) var(--color-300);
  scrollbar-width: thin; /* Може бути auto, thin або none */
- scroll-behavior: smooth;
 }
 
 body {
@@ -12,19 +11,23 @@ body {
  overflow-x: clip;
  min-height: 100vh;
  margin: 0;
- padding: 0;
  font-family: var(--font-family);
  font-size: var(--text-base);
  font-weight: 400;
  line-height: 1.6;
  color: var(--color-900);
- background-color: var(--bg-base);
- background-image:
-  radial-gradient(circle at 15% 25%, var(--bg-spot-1), transparent 45%),
-  radial-gradient(circle at 85% 15%, var(--bg-spot-2), transparent 45%),
-  radial-gradient(circle at 60% 85%, var(--bg-spot-3), transparent 50%);
- border: 0;
- background-attachment: fixed;
+
+ &::before {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--bg-base);
+  background-image:
+   radial-gradient(circle at 15% 25%, var(--bg-spot-1), transparent 45%),
+   radial-gradient(circle at 85% 15%, var(--bg-spot-2), transparent 45%),
+   radial-gradient(circle at 60% 85%, var(--bg-spot-3), transparent 50%);
+  content: '';
+ }
 }
 
 :focus-visible {

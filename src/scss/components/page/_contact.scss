@@ -4,14 +4,18 @@
  // .contact__container
  &__container {
   @include panel;
-  @include split;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: var(--gap-xl);
  }
 
  // .contact__body
  &__body {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--gap-md);
  }
 
@@ -26,9 +30,9 @@
  &__email {
   @include link;
   @include hover-line;
+  @include fluid-text(18, 30, $small-mobile, $bm);
 
   position: relative;
-  font-size: var(--text-xl);
   font-weight: 700;
   overflow-wrap: anywhere;
   transition: color var(--transition);

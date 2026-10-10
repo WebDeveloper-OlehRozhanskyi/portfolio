@@ -3,6 +3,9 @@
  <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+   name="description"
+   content="Workout Tracker by Oleh Rozhanskyi: logs resistance band and weighted vest exercises with reps, load and notes, stored in the browser. Vanilla JavaScript." />
   <link
    rel="icon"
    type="image/png"
@@ -21,7 +24,15 @@
   <header class="header">
    <div class="header__container">
     <a href="index.html" class="header__logo">Oleh Rozhanskyi</a>
-    <nav id="header-menu" class="header__menu menu">
+    <button
+     type="button"
+     class="burger-btn"
+     aria-label="open menu"
+     aria-expanded="false"
+     aria-controls="header-menu">
+     <span></span>
+    </button>
+    <nav id="header-menu" class="header__menu menu" aria-label="Main">
      <ul class="menu__list">
       <li class="menu__list-item">
        <a href="index.html" class="menu__list-link">Home</a>
@@ -40,14 +51,6 @@
       </li>
      </ul>
     </nav>
-    <button
-     type="button"
-     class="burger-btn"
-     aria-label="open menu"
-     aria-expanded="false"
-     aria-controls="header-menu">
-     <span></span>
-    </button>
    </div>
   </header>
   <main class="main">
@@ -156,7 +159,7 @@
   </main>
   <footer class="footer">
    <div class="footer__container">
-    <nav class="footer__nav" aria-label="Project navigation">
+    <nav class="footer__nav" aria-label="Projects">
      <a
       href="project-to-do-list.html"
       class="footer__nav-link footer__nav-link--prev">

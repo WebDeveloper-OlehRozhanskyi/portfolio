@@ -3,12 +3,12 @@
 
 :root {
  --color-900: #1a1a2e;
- --color-600: #6b7280;
+ --color-600: #374151;
  --color-300: #d1d5db;
  --color-100: #f3f4f6;
  --color-white: #fff;
- --color-accent: #6366f1;
- --color-accent-dark: #4f46e5;
+ --color-accent: #4f46e5;
+ --color-accent-dark: #4338ca;
  --color-danger: #ef4444;
  --color-success: #22c55e;
  --bg-base: #eef1f8;
@@ -44,7 +44,7 @@
  --shadow-lg: 0 #{rem(16)} #{rem(48)} rgb(0 0 0 / 10%);
  --transition: 0.3s;
 
- @media (width <= rem($xsm)) {
+ @media (width <= rem($bm)) {
   --padding-inline: var(--gap-md);
  }
 }

@@ -3,6 +3,9 @@
  <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+   name="description"
+   content="Portfolio of Oleh Rozhanskyi, front-end developer: responsive layouts in HTML and SCSS, and vanilla JavaScript apps — weather, to-do list, workout tracker." />
   <link
    rel="icon"
    type="image/png"
@@ -15,13 +18,21 @@
    sizes="180x180"
    href="/favicon/apple-touch-icon.png" />
   <link rel="manifest" href="/favicon/site.webmanifest" />
-  <title>Portfolio</title>
+  <title>Oleh Rozhanskyi — Front-End Developer</title>
  </head>
  <body id="top">
   <header class="header">
    <div class="header__container">
     <a href="#top" class="header__logo">Oleh Rozhanskyi</a>
-    <nav id="header-menu" class="header__menu menu">
+    <button
+     type="button"
+     class="burger-btn"
+     aria-label="open menu"
+     aria-expanded="false"
+     aria-controls="header-menu">
+     <span></span>
+    </button>
+    <nav id="header-menu" class="header__menu menu" aria-label="Main">
      <ul class="menu__list">
       <li class="menu__list-item">
        <a href="#top" class="menu__list-link">Home</a>
@@ -40,14 +51,6 @@
       </li>
      </ul>
     </nav>
-    <button
-     type="button"
-     class="burger-btn"
-     aria-label="open menu"
-     aria-expanded="false"
-     aria-controls="header-menu">
-     <span></span>
-    </button>
    </div>
   </header>
   <main class="main">
@@ -191,109 +194,113 @@
    <section class="main__work work" id="work">
     <div class="work__container container">
      <h2 class="work__title section-title">Work</h2>
-     <h3 class="work__subtitle">Applications</h3>
-     <ul class="work__list">
-      <li class="work__list-item">
-       <a href="project-weather-app.html" class="work__list-link card">
-        <img
-         class="card__img"
-         src="./src/images/work/weather.png"
-         alt=""
-         width="600"
-         height="500" />
-        <h4 class="card__title">Weather App</h4>
-        <p class="card__desc">Two chained API requests, city selection</p>
-       </a>
-      </li>
-      <li class="work__list-item">
-       <a href="project-to-do-list.html" class="work__list-link card">
-        <img
-         class="card__img"
-         src="./src/images/work/to-do-list.png"
-         alt=""
-         width="600"
-         height="500" />
-        <h4 class="card__title">To Do List</h4>
-        <p class="card__desc">CRUD with priorities and local storage</p>
-       </a>
-      </li>
-      <li class="work__list-item">
-       <a href="project-workout-tracker.html" class="work__list-link card">
-        <img
-         class="card__img"
-         src="./src/images/work/workout-tracker.png"
-         alt=""
-         width="600"
-         height="500" />
-        <h4 class="card__title">Workout Tracker</h4>
-        <p class="card__desc">
-         Exercise tracking with progress counter and local storage
-        </p>
-       </a>
-      </li>
-     </ul>
-     <hgroup class="work__heading">
-      <h3 class="work__subtitle">Layouts</h3>
-      <p class="work__note">
-       Responsive layouts built from free design templates.
-      </p>
-     </hgroup>
-     <ul class="work__list">
-      <li class="work__list-item">
-       <a
-        href="https://webdeveloper-olehrozhanskyi.github.io/the18/"
-        class="work__list-link card"
-        target="_blank"
-        rel="noopener">
-        <img
-         class="card__img"
-         src="./src/images/work/the18.png"
-         alt=""
-         width="600"
-         height="500" />
-        <h4 class="card__title">The 18</h4>
-        <p class="card__desc">
-         Modals, accordion, smooth scroll, responsive navigation
-        </p>
-       </a>
-      </li>
-      <li class="work__list-item">
-       <a
-        href="https://webdeveloper-olehrozhanskyi.github.io/green-bank/"
-        class="work__list-link card"
-        target="_blank"
-        rel="noopener">
-        <img
-         class="card__img"
-         src="./src/images/work/green-bank.png"
-         alt=""
-         width="600"
-         height="500" />
-        <h4 class="card__title">Green Bank</h4>
-        <p class="card__desc">
-         Modals with focus management, slider, accordion, tabs
-        </p>
-       </a>
-      </li>
-      <li class="work__list-item">
-       <a
-        href="https://webdeveloper-olehrozhanskyi.github.io/Robin.W/"
-        class="work__list-link card"
-        target="_blank"
-        rel="noopener">
-        <img
-         class="card__img"
-         src="./src/images/work/robin-w.png"
-         alt=""
-         width="600"
-         height="500" />
-        <h4 class="card__title">Robin.W</h4>
-        <p class="card__desc">
-         Tabs, smooth scroll with active nav highlighting, gallery
-        </p>
-       </a>
-      </li>
-     </ul>
+     <div class="work__group">
+      <h3 class="work__subtitle">Applications</h3>
+      <ul class="work__list">
+       <li class="work__list-item">
+        <a href="project-weather-app.html" class="work__list-link card">
+         <img
+          class="card__img"
+          src="./src/images/work/weather.png"
+          alt=""
+          width="600"
+          height="500" />
+         <h4 class="card__title">Weather App</h4>
+         <p class="card__desc">Two chained API requests, city selection</p>
+        </a>
+       </li>
+       <li class="work__list-item">
+        <a href="project-to-do-list.html" class="work__list-link card">
+         <img
+          class="card__img"
+          src="./src/images/work/to-do-list.png"
+          alt=""
+          width="600"
+          height="500" />
+         <h4 class="card__title">To Do List</h4>
+         <p class="card__desc">CRUD with priorities and local storage</p>
+        </a>
+       </li>
+       <li class="work__list-item">
+        <a href="project-workout-tracker.html" class="work__list-link card">
+         <img
+          class="card__img"
+          src="./src/images/work/workout-tracker.png"
+          alt=""
+          width="600"
+          height="500" />
+         <h4 class="card__title">Workout Tracker</h4>
+         <p class="card__desc">
+          Exercise tracking with progress counter and local storage
+         </p>
+        </a>
+       </li>
+      </ul>
+     </div>
+     <div class="work__group">
+      <hgroup class="work__heading">
+       <h3 class="work__subtitle">Layouts</h3>
+       <p class="work__note">
+        Responsive layouts built from free design templates.
+       </p>
+      </hgroup>
+      <ul class="work__list">
+       <li class="work__list-item">
+        <a
+         href="https://webdeveloper-olehrozhanskyi.github.io/the18/"
+         class="work__list-link card"
+         target="_blank"
+         rel="noopener">
+         <img
+          class="card__img"
+          src="./src/images/work/the18.png"
+          alt=""
+          width="600"
+          height="500" />
+         <h4 class="card__title">The 18</h4>
+         <p class="card__desc">
+          Modals, accordion, smooth scroll, responsive navigation
+         </p>
+        </a>
+       </li>
+       <li class="work__list-item">
+        <a
+         href="https://webdeveloper-olehrozhanskyi.github.io/green-bank/"
+         class="work__list-link card"
+         target="_blank"
+         rel="noopener">
+         <img
+          class="card__img"
+          src="./src/images/work/green-bank.png"
+          alt=""
+          width="600"
+          height="500" />
+         <h4 class="card__title">Green Bank</h4>
+         <p class="card__desc">
+          Modals with focus management, slider, accordion, tabs
+         </p>
+        </a>
+       </li>
+       <li class="work__list-item">
+        <a
+         href="https://webdeveloper-olehrozhanskyi.github.io/Robin.W/"
+         class="work__list-link card"
+         target="_blank"
+         rel="noopener">
+         <img
+          class="card__img"
+          src="./src/images/work/robin-w.png"
+          alt=""
+          width="600"
+          height="500" />
+         <h4 class="card__title">Robin.W</h4>
+         <p class="card__desc">
+          Tabs, smooth scroll with active nav highlighting, gallery
+         </p>
+        </a>
+       </li>
+      </ul>
+     </div>
     </div>
    </section>
    <section class="main__contact contact" id="contact">

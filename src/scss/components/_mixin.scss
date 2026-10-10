@@ -116,7 +116,6 @@
 }
 
 @mixin panel {
- padding: var(--gap-xl);
  background-color: var(--glass-bg);
  border: 1px solid var(--glass-border);
  border-radius: var(--radius-lg);
@@ -128,15 +127,28 @@
  display: flex;
  justify-content: space-between;
  align-items: start;
- gap: var(--gap-lg);
+ gap: var(--gap-xl);
 
  > :first-child {
   position: sticky;
   top: rem(100);
+
+  @include bm {
+   position: relative;
+   top: 0;
+  }
  }
 
  > :last-child {
-  width: 50%;
+  width: 70%;
+
+  @include bm {
+   width: 100%;
+  }
+ }
+
+ @include bm {
+  flex-direction: column;
  }
 }
 

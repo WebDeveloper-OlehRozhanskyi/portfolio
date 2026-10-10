@@ -6,12 +6,17 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: var(--gap-lg);
+  gap: var(--gap-xl);
   background-color: var(--glass-bg-strong);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   backdrop-filter: blur(var(--glass-blur));
+
+  @include t {
+   flex-direction: column;
+   align-items: center;
+  }
  }
 
  // .hero__title
@@ -41,6 +46,10 @@
   max-width: rem(700);
   font-size: var(--text-lg);
   color: var(--color-600);
+
+  @include t {
+   max-width: 100%;
+  }
  }
 
  // .hero__img
