@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+   rel="icon"
+   type="image/png"
+   href="/favicon/favicon-96x96.png"
+   sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link
+   rel="apple-touch-icon"
+   sizes="180x180"
+   href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <title>Workout Tracker — Oleh Rozhanskyi</title>
+ </head>
+ <body id="top">
+  <header class="header">
+   <div class="header__container">
+    <a href="index.html" class="header__logo">Oleh Rozhanskyi</a>
+    <nav id="header-menu" class="header__menu menu">
+     <ul class="menu__list">
+      <li class="menu__list-item">
+       <a href="index.html" class="menu__list-link">Home</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#about" class="menu__list-link">About</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#stack" class="menu__list-link">Stack</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#work" class="menu__list-link">Work</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#contact" class="menu__list-link">Contact</a>
+      </li>
+     </ul>
+    </nav>
+    <button
+     type="button"
+     class="burger-btn"
+     aria-label="open menu"
+     aria-expanded="false"
+     aria-controls="header-menu">
+     <span></span>
+    </button>
+   </div>
+  </header>
+  <main class="main">
+   <section class="main__project-hero project-hero">
+    <div class="project-hero__container container">
+     <h1 class="project-hero__title">Workout Tracker</h1>
+     <p class="project-hero__desc">
+      A workout tracker for resistance band and weighted vest training, built
+      around how I actually train.
+     </p>
+     <div class="project-hero__links">
+      <a
+       class="project-hero__link project-hero__link--primary"
+       href="https://webdeveloper-olehrozhanskyi.github.io/Workout-Tracker/"
+       target="_blank"
+       rel="noopener">
+       Live Demo
+      </a>
+      <a
+       class="project-hero__link"
+       href="https://github.com/WebDeveloper-OlehRozhanskyi/Workout-Tracker"
+       target="_blank"
+       rel="noopener">
+       Source Code
+      </a>
+     </div>
+     <img
+      class="project-hero__img"
+      src="./src/images/work/workout-tracker.png"
+      alt="Workout Tracker interface showing a list of exercises with reps, load and completion status"
+      width="600"
+      height="500"
+      loading="eager"
+      fetchpriority="high" />
+    </div>
+   </section>
+   <section class="main__project-about project-about" id="about">
+    <div class="project-about__container container">
+     <h2 class="project-about__title section-title">About the project</h2>
+     <div class="project-about__body">
+      <p class="project-about__desc">
+       Add an exercise with reps, load and a note for next time, mark it done,
+       and see how many are left. The equipment reference table collapses when
+       you don't need it, and everything is stored in the browser.
+      </p>
+      <p class="project-about__desc">
+       Built with vanilla JavaScript, no frameworks or libraries.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="main__project-challenges project-challenges" id="challenges">
+    <div class="project-challenges__container container">
+     <h2 class="project-challenges__title section-title">Challenges</h2>
+     <ul class="project-challenges__list">
+      <li class="project-challenges__list-item">
+       <h3 class="project-challenges__list-title">
+        Data that doesn't fit a number
+       </h3>
+       <p class="project-challenges__list-text">
+        Load can be a weighted vest measured in kilograms or a resistance band
+        identified by colour. Forcing both into a numeric field would have meant
+        either losing the band colours or inventing fake weights. The field
+        stays a string — it's displayed, not calculated — and only reps are
+        numeric, because those are the ones worth summing.
+       </p>
+      </li>
+      <li class="project-challenges__list-item">
+       <h3 class="project-challenges__list-title">
+        A metric that meant nothing
+       </h3>
+       <p class="project-challenges__list-text">
+        The original plan included a total reps counter. Ten pull-ups plus
+        twenty-two bends is thirty-two of what, exactly? Different exercises,
+        different muscles, different loads. I dropped it and kept the one number
+        that answers a real question during a session: how many exercises are
+        left.
+       </p>
+      </li>
+      <li class="project-challenges__list-item">
+       <h3 class="project-challenges__list-title">Letting HTML do the work</h3>
+       <p class="project-challenges__list-text">
+        The equipment table is only needed occasionally, so it had to collapse.
+        Instead of writing a toggle in JavaScript, the whole table sits inside a
+        <code>&lt;details&gt;</code>
+        element — the browser handles opening, closing, keyboard support and
+        screen reader announcements for free.
+       </p>
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section class="main__project-stack project-stack" id="built">
+    <div class="project-stack__container container">
+     <h2 class="project-stack__title section-title">Built with</h2>
+     <ul class="project-stack__list">
+      <li class="project-stack__list-item">JavaScript (ES modules)</li>
+      <li class="project-stack__list-item">Web Storage API (localStorage)</li>
+      <li class="project-stack__list-item">SCSS</li>
+      <li class="project-stack__list-item">BEM</li>
+      <li class="project-stack__list-item">Vite</li>
+      <li class="project-stack__list-item">GitHub Actions</li>
+     </ul>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="footer__container">
+    <nav class="footer__nav" aria-label="Project navigation">
+     <a
+      href="project-to-do-list.html"
+      class="footer__nav-link footer__nav-link--prev">
+      ← To Do List
+     </a>
+     <a href="index.html#work" class="footer__nav-link footer__nav-link--all">
+      All work
+     </a>
+     <a
+      href="project-weather-app.html"
+      class="footer__nav-link footer__nav-link--next">
+      Weather App →
+     </a>
+    </nav>
+    <p class="footer__text">© 2026 Oleh Rozhanskyi</p>
+   </div>
+  </footer>
+  <script type="module" src="./src/main.js"></script>
+ </body>
+</html>

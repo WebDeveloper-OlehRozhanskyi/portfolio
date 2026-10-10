@@ -1,0 +1,77 @@
+@use 'root' as *;
+
+html {
+ box-sizing: border-box;
+ height: 100%;
+ scroll-behavior: smooth;
+ scrollbar-gutter: stable;
+}
+
+*,
+*::before,
+*::after {
+ box-sizing: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+ * {
+  transition-duration: 0.01ms !important;
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  scroll-behavior: auto !important;
+ }
+}
+
+@mixin image {
+ display: block;
+ max-width: 100%;
+ height: auto;
+ @content;
+}
+
+@mixin svg-color {
+ fill: currentcolor;
+ transition-property: fill;
+ @content;
+}
+
+@mixin list {
+ padding-left: 0;
+ margin-block: 0;
+ list-style: none;
+ @content;
+}
+
+@mixin button {
+ font-family: inherit;
+ font-size: inherit;
+ color: inherit;
+ cursor: pointer;
+ @content;
+}
+
+@mixin margin-block {
+ margin-block: 0;
+ @content;
+}
+
+@mixin link {
+ display: block;
+ text-decoration: none;
+ color: inherit;
+ @content;
+}
+
+@mixin form {
+ font-family: inherit;
+ font-size: inherit;
+ color: inherit;
+ @content;
+}
+
+::-webkit-search-decoration,
+::-webkit-search-cancel-button,
+::-webkit-search-results-button,
+::-webkit-search-results-decoration {
+ appearance: none;
+}

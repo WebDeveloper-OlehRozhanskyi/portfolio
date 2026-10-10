@@ -1,0 +1,60 @@
+@use '../foundation' as *;
+
+.stack {
+ // .stack__container
+ &__container {
+  @include panel;
+  @include split;
+ }
+
+ // .stack__subtitle
+ &__subtitle {
+  @include margin-block;
+
+  margin-bottom: var(--gap-sm);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-600);
+ }
+
+ // .stack__body
+ &__body {
+  display: flex;
+  flex-direction: column;
+  max-width: 50%;
+  flex-grow: 1;
+ }
+
+ // .stack__list
+ &__list {
+  @include list;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+
+  &:not(:last-child) {
+   margin-bottom: var(--gap-lg);
+  }
+ }
+
+ // .stack__list-item
+ &__list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-xs);
+  padding: var(--gap-sm) var(--gap-md);
+  font-size: var(--text-sm);
+  background-color: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+ }
+
+ // .stack__list-icon
+ &__list-icon {
+  @include svg-color;
+
+  flex-shrink: 0;
+  color: var(--color-600);
+ }
+}

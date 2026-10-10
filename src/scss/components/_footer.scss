@@ -1,0 +1,63 @@
+@use 'foundation' as *;
+
+.footer {
+ // .footer__container
+ &__container {
+  @include container;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-md);
+  padding-block: var(--gap-lg);
+  background-color: var(--glass-bg);
+  border-top: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  backdrop-filter: blur(var(--glass-blur));
+ }
+
+ // .footer__nav
+ &__nav {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--gap-md);
+  width: 100%;
+ }
+
+ // .footer__nav-link
+ &__nav-link {
+  @include link;
+  @include hover-line;
+
+  position: relative;
+  font-weight: 600;
+  transition: color var(--transition);
+
+  @include hover {
+   color: var(--color-accent);
+  }
+
+  // .footer__nav-link--all
+  &--all {
+   font-weight: 400;
+   color: var(--color-600);
+  }
+
+  &--prev {
+   justify-self: start;
+  }
+
+  &--next {
+   justify-self: end;
+  }
+ }
+
+ // .footer__text
+ &__text {
+  @include margin-block;
+
+  font-size: var(--text-sm);
+  color: var(--color-600);
+ }
+}

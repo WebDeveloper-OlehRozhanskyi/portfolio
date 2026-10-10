@@ -1,0 +1,70 @@
+@use '../foundation' as *;
+
+.contact {
+ // .contact__container
+ &__container {
+  @include panel;
+  @include split;
+ }
+
+ // .contact__body
+ &__body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-md);
+ }
+
+ // .contact__text
+ &__text {
+  @include margin-block;
+
+  color: var(--color-600);
+ }
+
+ // .contact__email
+ &__email {
+  @include link;
+  @include hover-line;
+
+  position: relative;
+  font-size: var(--text-xl);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  transition: color var(--transition);
+
+  @include hover {
+   color: var(--color-accent);
+  }
+ }
+
+ // .contact__list
+ &__list {
+  @include list;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-sm);
+ }
+
+ // .contact__link
+ &__link {
+  @include link;
+
+  display: inline-flex;
+  align-items: center;
+  padding: var(--gap-sm) var(--gap-md);
+  font-size: var(--text-sm);
+  background-color: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-full);
+  transition:
+   color var(--transition),
+   border-color var(--transition);
+
+  @include hover {
+   color: var(--color-accent);
+   border-color: var(--color-accent);
+  }
+ }
+}

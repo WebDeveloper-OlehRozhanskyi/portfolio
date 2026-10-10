@@ -1,0 +1,22 @@
+@use 'foundation' as *;
+
+.main {
+ display: flex;
+ flex-direction: column;
+ gap: var(--gap-2xl);
+ padding-block: var(--gap-2xl);
+}
+
+.container {
+ @include container;
+
+ padding-block: var(--gap-xl);
+}
+
+.section-title {
+ @include margin-block;
+
+ font-size: var(--text-2xl);
+ font-weight: 700;
+ line-height: 1.2;
+}

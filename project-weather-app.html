@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+   rel="icon"
+   type="image/png"
+   href="/favicon/favicon-96x96.png"
+   sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link
+   rel="apple-touch-icon"
+   sizes="180x180"
+   href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <title>Weather App — Oleh Rozhanskyi</title>
+ </head>
+ <body id="top">
+  <header class="header">
+   <div class="header__container">
+    <a href="index.html" class="header__logo">Oleh Rozhanskyi</a>
+    <nav id="header-menu" class="header__menu menu">
+     <ul class="menu__list">
+      <li class="menu__list-item">
+       <a href="index.html" class="menu__list-link">Home</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#about" class="menu__list-link">About</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#stack" class="menu__list-link">Stack</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#work" class="menu__list-link">Work</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#contact" class="menu__list-link">Contact</a>
+      </li>
+     </ul>
+    </nav>
+    <button
+     type="button"
+     class="burger-btn"
+     aria-label="open menu"
+     aria-expanded="false"
+     aria-controls="header-menu">
+     <span></span>
+    </button>
+   </div>
+  </header>
+  <main class="main">
+   <section class="main__project-hero project-hero">
+    <div class="project-hero__container container">
+     <h1 class="project-hero__title">Weather App</h1>
+     <p class="project-hero__desc">
+      A weather app that finds any city and shows current conditions from the
+      Open-Meteo API.
+     </p>
+     <div class="project-hero__links">
+      <a
+       class="project-hero__link project-hero__link--primary"
+       href="https://webdeveloper-olehrozhanskyi.github.io/Weather-App/"
+       target="_blank"
+       rel="noopener">
+       Live Demo
+      </a>
+      <a
+       class="project-hero__link"
+       href="https://github.com/WebDeveloper-OlehRozhanskyi/Weather-App"
+       target="_blank"
+       rel="noopener">
+       Source Code
+      </a>
+     </div>
+     <img
+      class="project-hero__img"
+      src="./src/images/work/weather.png"
+      alt="Weather App interface showing current temperature for a selected city"
+      width="600"
+      height="500"
+      loading="eager"
+      fetchpriority="high" />
+    </div>
+   </section>
+   <section class="main__project-about project-about" id="about">
+    <div class="project-about__container container">
+     <h2 class="project-about__title section-title">About the project</h2>
+     <div class="project-about__body">
+      <p class="project-about__desc">
+       Type a city name and get the current temperature, weather description and
+       wind speed. Because city names are rarely unique — "Most" exists in
+       Czechia, Mongolia and the Netherlands — the app first shows a list of
+       matching locations and lets you pick the right one.
+      </p>
+      <p class="project-about__desc">
+       Built with vanilla JavaScript, no frameworks or libraries.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="main__project-challenges project-challenges" id="challenges">
+    <div class="project-challenges__container container">
+     <h2 class="project-challenges__title section-title">Challenges</h2>
+     <ul class="project-challenges__list">
+      <li class="project-challenges__list-item">
+       <h3 class="project-challenges__list-title">
+        Chaining two dependent requests
+       </h3>
+       <p class="project-challenges__list-text">
+        The weather API only accepts coordinates, not city names. So the app
+        makes two requests: geocoding turns a name into coordinates, then those
+        coordinates go into the weather request. The result of the first request
+        feeds the second.
+       </p>
+      </li>
+      <li class="project-challenges__list-item">
+       <h3 class="project-challenges__list-title">Ambiguous city names</h3>
+       <p class="project-challenges__list-text">
+        Searching "Most" returns five different places across the world. Rather
+        than silently picking the first match, the app renders the options as
+        buttons — each carrying its own coordinates in data attributes — and
+        waits for the user to choose. Only then does it fetch the weather.
+       </p>
+      </li>
+      <li class="project-challenges__list-item">
+       <h3 class="project-challenges__list-title">
+        A successful response with no results
+       </h3>
+       <p class="project-challenges__list-text">
+        <code>response.ok</code>
+        doesn't catch everything. When a city isn't found, the geocoding API
+        still returns status 200 — just without a results array. That case needs
+        its own check, separate from network errors.
+       </p>
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section class="main__project-stack project-stack" id="built">
+    <div class="project-stack__container container">
+     <h2 class="project-stack__title section-title">Built with</h2>
+     <ul class="project-stack__list">
+      <li class="project-stack__list-item">JavaScript (ES modules)</li>
+      <li class="project-stack__list-item">Fetch API</li>
+      <li class="project-stack__list-item">Open-Meteo API</li>
+      <li class="project-stack__list-item">SCSS</li>
+      <li class="project-stack__list-item">BEM</li>
+      <li class="project-stack__list-item">Vite</li>
+      <li class="project-stack__list-item">GitHub Actions</li>
+     </ul>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="footer__container">
+    <nav class="footer__nav" aria-label="Project navigation">
+     <a
+      href="project-workout-tracker.html"
+      class="footer__nav-link footer__nav-link--prev">
+      ← Workout Tracker
+     </a>
+     <a href="index.html#work" class="footer__nav-link footer__nav-link--all">
+      All work
+     </a>
+     <a
+      href="project-to-do-list.html"
+      class="footer__nav-link footer__nav-link--next">
+      To Do List →
+     </a>
+    </nav>
+    <p class="footer__text">© 2026 Oleh Rozhanskyi</p>
+   </div>
+  </footer>
+  <script type="module" src="./src/main.js"></script>
+ </body>
+</html>

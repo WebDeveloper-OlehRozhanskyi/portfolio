@@ -1,0 +1,50 @@
+@use 'functions' as *;
+@use 'variables' as *;
+
+:root {
+ --color-900: #1a1a2e;
+ --color-600: #6b7280;
+ --color-300: #d1d5db;
+ --color-100: #f3f4f6;
+ --color-white: #fff;
+ --color-accent: #6366f1;
+ --color-accent-dark: #4f46e5;
+ --color-danger: #ef4444;
+ --color-success: #22c55e;
+ --bg-base: #eef1f8;
+ --bg-spot-1: rgb(99 102 241 / 45%);
+ --bg-spot-2: rgb(167 139 250 / 40%);
+ --bg-spot-3: rgb(56 189 248 / 35%);
+ --glass-bg: rgb(255 255 255 / 25%);
+ --glass-bg-strong: rgb(255 255 255 / 45%);
+ --glass-border: rgb(255 255 255 / 40%);
+ --glass-blur: #{rem(15)};
+ --font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
+ --font-mono: ui-monospace, 'SF Mono', menlo, monospace;
+ --text-3xl: #{rem(48)};
+ --text-2xl: #{rem(36)};
+ --text-xl: #{rem(30)};
+ --text-lg: #{rem(24)};
+ --text-md: #{rem(20)};
+ --text-base: #{rem(18)};
+ --text-sm: #{rem(14)};
+ --padding-inline: #{rem(32)};
+ --gap-xs: #{rem(4)};
+ --gap-sm: #{rem(8)};
+ --gap-md: #{rem(16)};
+ --gap-lg: #{rem(24)};
+ --gap-xl: #{rem(32)};
+ --gap-2xl: #{rem(64)};
+ --radius-sm: #{rem(8)};
+ --radius-md: #{rem(16)};
+ --radius-lg: #{rem(24)};
+ --radius-full: 9999px;
+ --shadow-sm: 0 #{rem(2)} #{rem(8)} rgb(0 0 0 / 6%);
+ --shadow-md: 0 #{rem(8)} #{rem(24)} rgb(0 0 0 / 8%);
+ --shadow-lg: 0 #{rem(16)} #{rem(48)} rgb(0 0 0 / 10%);
+ --transition: 0.3s;
+
+ @media (width <= rem($xsm)) {
+  --padding-inline: var(--gap-md);
+ }
+}

@@ -1,0 +1,179 @@
+@use 'sass:math';
+@use 'variables' as *;
+@use 'functions' as *;
+@use 'root' as *;
+
+@mixin small-mobile {
+ @media (width <= rem($small-mobile)) {
+  @content;
+ }
+}
+
+@mixin xxsm {
+ @media (width <= rem($xxsm)) {
+  @content;
+ }
+}
+
+@mixin xsm {
+ @media (width <= rem($xsm)) {
+  @content;
+ }
+}
+
+@mixin sm {
+ @media (width <= rem($sm)) {
+  @content;
+ }
+}
+
+@mixin m {
+ @media (width <= rem($m)) {
+  @content;
+ }
+}
+
+@mixin mobile {
+ @media (width <= rem($mobile)) {
+  @content;
+ }
+}
+
+@mixin bm {
+ @media (width <= rem($bm)) {
+  @content;
+ }
+}
+
+@mixin st {
+ @media (width <= rem($st)) {
+  @content;
+ }
+}
+
+@mixin t {
+ @media (width <= rem($t)) {
+  @content;
+ }
+}
+
+@mixin bt {
+ @media (width <= rem($bt)) {
+  @content;
+ }
+}
+
+@mixin l {
+ @media (width <= rem($l)) {
+  @content;
+ }
+}
+
+@mixin desktop {
+ @media (width <= rem($desktop)) {
+  @content;
+ }
+}
+
+@mixin container {
+ max-width: calc(#{rem($container)} + var(--padding-inline) * 2);
+ padding-inline: var(--padding-inline);
+ margin-inline: auto;
+ @content;
+}
+
+@mixin hover {
+ @media (hover: hover) and (pointer: fine) {
+  &:hover {
+   @content;
+  }
+ }
+
+ &:focus-visible {
+  @content;
+ }
+}
+
+@mixin hover-line {
+ &::before {
+  position: absolute;
+  bottom: rem(-4);
+  left: 0;
+  width: 100%;
+  height: rem(2);
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+  content: '';
+ }
+
+ @include hover {
+  &::before {
+   transform: scaleX(1);
+  }
+ }
+}
+
+@mixin panel {
+ padding: var(--gap-xl);
+ background-color: var(--glass-bg);
+ border: 1px solid var(--glass-border);
+ border-radius: var(--radius-lg);
+ box-shadow: var(--shadow-md);
+ backdrop-filter: blur(var(--glass-blur));
+}
+
+@mixin split {
+ display: flex;
+ justify-content: space-between;
+ align-items: start;
+ gap: var(--gap-lg);
+
+ > :first-child {
+  position: sticky;
+  top: rem(100);
+ }
+
+ > :last-child {
+  width: 50%;
+ }
+}
+
+@mixin fluid-text(
+ $min: 16,
+ $max: 48,
+ $min-viewport: $small-mobile,
+ $max-viewport: $desktop
+) {
+ $max-viewport-width: $max-viewport;
+ $min-viewport-width: $min-viewport;
+ $max-size: math.div($max, 16);
+ $min-size: math.div($min, 16);
+ $max-width: math.div($max-viewport-width, 16);
+ $min-width: math.div($min-viewport-width, 16);
+ $slope: math.div(($max-size - $min-size), ($max-width - $min-width));
+ $y-axis-intersection: -$min-width * $slope + $min-size;
+
+ font-size: clamp(
+  #{$min-size * 1rem},
+  #{$y-axis-intersection * 1rem} + #{$slope * 100vw},
+  #{$max-size * 1rem}
+ );
+}
+
+@mixin bg-image-set($base, $ext: 'jpg') {
+ background-image: url('#{$base}.#{$ext}');
+ background-image: image-set(
+  url('#{$base}.avif') type('image/avif') 1x,
+  url('#{$base}@2x.avif') type('image/avif') 2x,
+  url('#{$base}.webp') type('image/webp') 1x,
+  url('#{$base}@2x.webp') type('image/webp') 2x,
+  url('#{$base}.#{$ext}') type('image/#{if($ext == "png", "png", "jpeg")}') 1x,
+  url('#{$base}@2x.#{$ext}') type('image/#{if($ext == "png", "png", "jpeg")}')
+   2x
+ );
+ background-position: center;
+ background-repeat: no-repeat;
+ background-size: cover;
+}

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+   rel="icon"
+   type="image/png"
+   href="/favicon/favicon-96x96.png"
+   sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link
+   rel="apple-touch-icon"
+   sizes="180x180"
+   href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <title>To Do List — Oleh Rozhanskyi</title>
+ </head>
+ <body id="top">
+  <header class="header">
+   <div class="header__container">
+    <a href="index.html" class="header__logo">Oleh Rozhanskyi</a>
+    <nav id="header-menu" class="header__menu menu">
+     <ul class="menu__list">
+      <li class="menu__list-item">
+       <a href="index.html" class="menu__list-link">Home</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#about" class="menu__list-link">About</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#stack" class="menu__list-link">Stack</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#work" class="menu__list-link">Work</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="index.html#contact" class="menu__list-link">Contact</a>
+      </li>
+     </ul>
+    </nav>
+    <button
+     type="button"
+     class="burger-btn"
+     aria-label="open menu"
+     aria-expanded="false"
+     aria-controls="header-menu">
+     <span></span>
+    </button>
+   </div>
+  </header>
+  <main class="main">
+   <section class="main__project-hero project-hero">
+    <div class="project-hero__container container">
+     <h1 class="project-hero__title">To Do List</h1>
+     <p class="project-hero__desc">
+      A task manager with priority levels that keeps your list between sessions.
+     </p>
+     <div class="project-hero__links">
+      <a
+       class="project-hero__link project-hero__link--primary"
+       href="https://webdeveloper-olehrozhanskyi.github.io/ToDoList/"
+       target="_blank"
+       rel="noopener">
+       Live Demo
+      </a>
+      <a
+       class="project-hero__link"
+       href="https://github.com/WebDeveloper-OlehRozhanskyi/ToDoList"
+       target="_blank"
+       rel="noopener">
+       Source Code
+      </a>
+     </div>
+     <img
+      class="project-hero__img"
+      src="./src/images/work/to-do-list.png"
+      alt="To Do List interface with tasks marked by priority and an active task counter"
+      width="600"
+      height="500"
+      loading="eager"
+      fetchpriority="high" />
+    </div>
+   </section>
+   <section class="main__project-about project-about" id="about">
+    <div class="project-about__container container">
+     <h2 class="project-about__title section-title">About the project</h2>
+     <div class="project-about__body">
+      <p class="project-about__desc">
+       Add a task, set its priority, mark it done or delete it. The active task
+       counter updates as you go, and everything is stored in the browser, so
+       the list survives a page reload.
+      </p>
+      <p class="project-about__desc">
+       Built with vanilla JavaScript, no frameworks or libraries.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="main__project-challenges project-challenges" id="challenges">
+    <div class="project-challenges__container container">
+     <h2 class="project-challenges__title section-title">Challenges</h2>
+     <ul class="project-challenges__list">
+      <li class="project-challenges__list-item">
+       <h3 class="project-challenges__list-title">
+        One handler for two different actions
+       </h3>
+       <p class="project-challenges__list-text">
+        Clicking a task toggles it, clicking the delete button removes it — but
+        both clicks land on the same list. Instead of attaching a listener to
+        every task, one listener sits on the list and checks what was actually
+        clicked: the delete button carries a
+        <code>data-action</code>
+        attribute, everything else falls through to the toggle. Tasks added
+        later work without rebinding anything.
+       </p>
+      </li>
+
+      <li class="project-challenges__list-item">
+       <h3 class="project-challenges__list-title">
+        An empty state that broke the app
+       </h3>
+       <p class="project-challenges__list-text">
+        When the list is empty, a placeholder message appears. I gave it the
+        same class as a task item so it would inherit the styling — and the
+        click handler started treating it as a task. Clicking the placeholder
+        crashed the app:
+        <code>closest</code>
+        found it, but there was no matching item in the array. A class is not
+        only styling, it's also how the code identifies elements.
+       </p>
+      </li>
+
+      <li class="project-challenges__list-item">
+       <h3 class="project-challenges__list-title">Surviving a page reload</h3>
+       <p class="project-challenges__list-text">
+        Local storage only holds strings, so the task array is serialised to
+        JSON on every change and parsed back when the app starts. On a first
+        visit there is nothing stored yet, which means the parse returns
+        <code>null</code>
+        — the app falls back to an empty array instead of trying to render it.
+       </p>
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section class="main__project-stack project-stack" id="built">
+    <div class="project-stack__container container">
+     <h2 class="project-stack__title section-title">Built with</h2>
+     <ul class="project-stack__list">
+      <li class="project-stack__list-item">JavaScript (ES modules)</li>
+      <li class="project-stack__list-item">Web Storage API (localStorage)</li>
+      <li class="project-stack__list-item">SCSS</li>
+      <li class="project-stack__list-item">BEM</li>
+      <li class="project-stack__list-item">Vite</li>
+      <li class="project-stack__list-item">GitHub Actions</li>
+     </ul>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="footer__container">
+    <nav class="footer__nav" aria-label="Project navigation">
+     <a
+      href="project-weather-app.html"
+      class="footer__nav-link footer__nav-link--prev">
+      ← Weather App
+     </a>
+     <a href="index.html#work" class="footer__nav-link footer__nav-link--all">
+      All work
+     </a>
+     <a
+      href="project-workout-tracker.html"
+      class="footer__nav-link footer__nav-link--next">
+      Workout Tracker →
+     </a>
+    </nav>
+    <p class="footer__text">© 2026 Oleh Rozhanskyi</p>
+   </div>
+  </footer>
+  <script type="module" src="./src/main.js"></script>
+ </body>
+</html>

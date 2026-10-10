@@ -1,0 +1,54 @@
+@use '../foundation' as *;
+
+.hero {
+ // .hero__container
+ &__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-lg);
+  background-color: var(--glass-bg-strong);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(var(--glass-blur));
+ }
+
+ // .hero__title
+ &__title {
+  @include margin-block;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-sm);
+  margin-bottom: var(--gap-xl);
+  font-size: var(--text-3xl);
+  font-weight: 700;
+  line-height: 1.1;
+ }
+
+ // .hero__subtitle
+ &__subtitle {
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--color-accent);
+ }
+
+ // .hero__text
+ &__text {
+  @include margin-block;
+
+  max-width: rem(700);
+  font-size: var(--text-lg);
+  color: var(--color-600);
+ }
+
+ // .hero__img
+ &__img {
+  @include image;
+
+  max-height: rem(450);
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+ }
+}

@@ -1,0 +1,21 @@
+@use '../foundation' as *;
+
+.about {
+ // .about__container
+ &__container {
+  @include panel;
+  @include split;
+ }
+
+ // .about__text
+ &__text {
+  @include margin-block;
+
+  max-width: rem(700);
+  color: var(--color-600);
+
+  &:not(:last-child) {
+   margin-bottom: var(--gap-lg);
+  }
+ }
+}

@@ -1,0 +1,23 @@
+@use 'sass:math';
+
+@function rem($n) {
+ @return math.div($n, 16) * 1rem;
+}
+
+@function fluid($min, $max, $minWidth, $maxWidth, $base: 16) {
+ $min-rem: math.div($min, $base) * 1rem;
+ $max-rem: math.div($max, $base) * 1rem;
+ $slope: math.div($max - $min, $maxWidth - $minWidth) * 100;
+ $intercept: math.div($min - math.div($slope * $minWidth, 100), $base);
+
+ @return clamp(#{$min-rem}, #{$intercept}rem + #{$slope}vw, #{$max-rem});
+}
+
+@function fluid-reverse($min, $max, $minWidth, $maxWidth, $base: 16) {
+ $min-rem: math.div($min, $base) * 1rem;
+ $max-rem: math.div($max, $base) * 1rem;
+ $slope: math.div($min - $max, $maxWidth - $minWidth) * 100;
+ $intercept: math.div($max - math.div($slope * $minWidth, 100), $base);
+
+ @return clamp(#{$min-rem}, #{$intercept}rem + #{$slope}vw, #{$max-rem});
+}

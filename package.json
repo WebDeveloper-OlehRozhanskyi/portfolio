@@ -1,0 +1,35 @@
+{
+ "name": "portfolio",
+ "private": true,
+ "version": "0.0.0",
+ "type": "module",
+ "scripts": {
+  "lint:js": "eslint .",
+  "lint:js:fix": "eslint . --fix",
+  "lint:scss": "stylelint \"**/*.scss\"",
+  "lint:scss:fix": "stylelint \"**/*.scss\" --fix",
+  "format": "prettier --write .",
+  "dev": "vite",
+  "prebuild": "node ./plugins/genFormats.js",
+  "build": "vite build",
+  "preview": "vite preview",
+  "lint": "npm run lint:js ; npm run lint:scss",
+  "lint:fix": "npm run lint:js:fix ; npm run lint:scss:fix ; npm run format"
+ },
+ "devDependencies": {
+  "@eslint/js": "9.36.0",
+  "eslint": "9.36.0",
+  "eslint-config-prettier": "10.1.8",
+  "globals": "16.4.0",
+  "prettier": "3.6.2",
+  "sass": "1.93.2",
+  "sharp": "0.34.4",
+  "stylelint": "16.25.0",
+  "stylelint-config-standard-scss": "16.0.0",
+  "stylelint-order": "7.0.0",
+  "stylelint-scss": "6.12.1",
+  "vite": "7.1.9",
+  "vite-plugin-image-optimizer": "2.0.3",
+  "vite-plugin-svg-icons": "2.0.1"
+ }
+}

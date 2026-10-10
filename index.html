@@ -1,0 +1,347 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+   rel="icon"
+   type="image/png"
+   href="/favicon/favicon-96x96.png"
+   sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon/favicon.ico" />
+  <link
+   rel="apple-touch-icon"
+   sizes="180x180"
+   href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/favicon/site.webmanifest" />
+  <title>Portfolio</title>
+ </head>
+ <body id="top">
+  <header class="header">
+   <div class="header__container">
+    <a href="#top" class="header__logo">Oleh Rozhanskyi</a>
+    <nav id="header-menu" class="header__menu menu">
+     <ul class="menu__list">
+      <li class="menu__list-item">
+       <a href="#top" class="menu__list-link">Home</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="#about" class="menu__list-link">About</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="#stack" class="menu__list-link">Stack</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="#work" class="menu__list-link">Work</a>
+      </li>
+      <li class="menu__list-item">
+       <a href="#contact" class="menu__list-link">Contact</a>
+      </li>
+     </ul>
+    </nav>
+    <button
+     type="button"
+     class="burger-btn"
+     aria-label="open menu"
+     aria-expanded="false"
+     aria-controls="header-menu">
+     <span></span>
+    </button>
+   </div>
+  </header>
+  <main class="main">
+   <section class="main__hero hero">
+    <div class="hero__container container">
+     <div class="hero__body">
+      <h1 class="hero__title">
+       Hi, I'm Oleh
+       <span class="hero__subtitle">Front-End Developer</span>
+      </h1>
+      <p class="hero__text">
+       I turn designs into working interfaces. I enjoy polishing a project until
+       every detail sits right — a habit I picked up as a CNC operator, where
+       precision is not optional. Self-taught and currently moving into
+       front-end development, looking for my first developer role.
+      </p>
+     </div>
+     <img
+      class="hero__img"
+      src="./src/images/hero/photo.jpeg"
+      alt="Oleh Rozhanskyi"
+      width="463"
+      height="495"
+      loading="eager"
+      fetchpriority="high" />
+    </div>
+   </section>
+   <section class="main__about about" id="about">
+    <div class="about__container container">
+     <h2 class="about__title section-title">About</h2>
+     <div class="about__body">
+      <p class="about__text">
+       I spent years as a CNC operator, where a single wrong value ruins the
+       part. That taught me to check things carefully and finish what I start —
+       habits that turned out to matter more in development than I expected.
+      </p>
+      <p class="about__text">
+       Over the past year I moved from occasional experiments with code to
+       complete, deployed projects. I taught myself — mostly from documentation,
+       video courses and a lot of trial and error. Along the way I learned to
+       structure data for the task at hand, separate logic from markup, handle
+       errors and edge cases, and set up an automated build and deployment
+       pipeline.
+      </p>
+      <p class="about__text">
+       I don't memorise syntax, I look things up. What I do bring is the habit
+       of seeing a task through until it actually works and every detail sits
+       right.
+      </p>
+     </div>
+    </div>
+   </section>
+   <section class="main__stack stack" id="stack">
+    <div class="stack__container container">
+     <h2 class="stack__title section-title">Stack</h2>
+     <div class="stack__body">
+      <h3 class="stack__subtitle">Confident</h3>
+      <ul class="stack__list">
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-html"></use>
+        </svg>
+        HTML
+       </li>
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-css"></use>
+        </svg>
+        CSS
+       </li>
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-sass"></use>
+        </svg>
+        SCSS
+       </li>
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-bem"></use>
+        </svg>
+        BEM
+       </li>
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-javascript"></use>
+        </svg>
+        JavaScript
+       </li>
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-git"></use>
+        </svg>
+        Git
+       </li>
+      </ul>
+      <h3 class="stack__subtitle">Currently learning</h3>
+      <ul class="stack__list">
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-react"></use>
+        </svg>
+        React
+       </li>
+      </ul>
+      <h3 class="stack__subtitle">Tooling</h3>
+      <ul class="stack__list">
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-vite"></use>
+        </svg>
+        Vite
+       </li>
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-github"></use>
+        </svg>
+        GitHub Actions (CI/CD)
+       </li>
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-eslint"></use>
+        </svg>
+        ESLint
+       </li>
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-stylelint"></use>
+        </svg>
+        Stylelint
+       </li>
+       <li class="stack__list-item">
+        <svg class="stack__list-icon" width="24" height="24" aria-hidden="true">
+         <use href="#icon-prettier"></use>
+        </svg>
+        Prettier
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+   <section class="main__work work" id="work">
+    <div class="work__container container">
+     <h2 class="work__title section-title">Work</h2>
+     <h3 class="work__subtitle">Applications</h3>
+     <ul class="work__list">
+      <li class="work__list-item">
+       <a href="project-weather-app.html" class="work__list-link card">
+        <img
+         class="card__img"
+         src="./src/images/work/weather.png"
+         alt=""
+         width="600"
+         height="500" />
+        <h4 class="card__title">Weather App</h4>
+        <p class="card__desc">Two chained API requests, city selection</p>
+       </a>
+      </li>
+      <li class="work__list-item">
+       <a href="project-to-do-list.html" class="work__list-link card">
+        <img
+         class="card__img"
+         src="./src/images/work/to-do-list.png"
+         alt=""
+         width="600"
+         height="500" />
+        <h4 class="card__title">To Do List</h4>
+        <p class="card__desc">CRUD with priorities and local storage</p>
+       </a>
+      </li>
+      <li class="work__list-item">
+       <a href="project-workout-tracker.html" class="work__list-link card">
+        <img
+         class="card__img"
+         src="./src/images/work/workout-tracker.png"
+         alt=""
+         width="600"
+         height="500" />
+        <h4 class="card__title">Workout Tracker</h4>
+        <p class="card__desc">
+         Exercise tracking with progress counter and local storage
+        </p>
+       </a>
+      </li>
+     </ul>
+     <hgroup class="work__heading">
+      <h3 class="work__subtitle">Layouts</h3>
+      <p class="work__note">
+       Responsive layouts built from free design templates.
+      </p>
+     </hgroup>
+     <ul class="work__list">
+      <li class="work__list-item">
+       <a
+        href="https://webdeveloper-olehrozhanskyi.github.io/the18/"
+        class="work__list-link card"
+        target="_blank"
+        rel="noopener">
+        <img
+         class="card__img"
+         src="./src/images/work/the18.png"
+         alt=""
+         width="600"
+         height="500" />
+        <h4 class="card__title">The 18</h4>
+        <p class="card__desc">
+         Modals, accordion, smooth scroll, responsive navigation
+        </p>
+       </a>
+      </li>
+      <li class="work__list-item">
+       <a
+        href="https://webdeveloper-olehrozhanskyi.github.io/green-bank/"
+        class="work__list-link card"
+        target="_blank"
+        rel="noopener">
+        <img
+         class="card__img"
+         src="./src/images/work/green-bank.png"
+         alt=""
+         width="600"
+         height="500" />
+        <h4 class="card__title">Green Bank</h4>
+        <p class="card__desc">
+         Modals with focus management, slider, accordion, tabs
+        </p>
+       </a>
+      </li>
+      <li class="work__list-item">
+       <a
+        href="https://webdeveloper-olehrozhanskyi.github.io/Robin.W/"
+        class="work__list-link card"
+        target="_blank"
+        rel="noopener">
+        <img
+         class="card__img"
+         src="./src/images/work/robin-w.png"
+         alt=""
+         width="600"
+         height="500" />
+        <h4 class="card__title">Robin.W</h4>
+        <p class="card__desc">
+         Tabs, smooth scroll with active nav highlighting, gallery
+        </p>
+       </a>
+      </li>
+     </ul>
+    </div>
+   </section>
+   <section class="main__contact contact" id="contact">
+    <div class="contact__container container">
+     <h2 class="contact__title section-title">Contact</h2>
+     <div class="contact__body">
+      <p class="contact__text">Open to remote work or relocation.</p>
+      <a href="mailto:oleh.rozhanskyi@gmail.com" class="contact__email">
+       oleh.rozhanskyi@gmail.com
+      </a>
+      <ul class="contact__list">
+       <li class="contact__list-item">
+        <a
+         href="https://github.com/WebDeveloper-OlehRozhanskyi"
+         class="contact__link"
+         target="_blank"
+         rel="noopener">
+         GitHub
+        </a>
+       </li>
+       <li class="contact__list-item">
+        <a
+         href="https://www.linkedin.com/in/oleh-rozhanskyi-b5923b324/"
+         class="contact__link"
+         target="_blank"
+         rel="noopener">
+         LinkedIn
+        </a>
+       </li>
+       <li class="contact__list-item">
+        <a
+         href="./Oleh-Rozhanskyi-CV.pdf"
+         class="contact__link"
+         target="_blank"
+         rel="noopener">
+         CV (PDF)
+        </a>
+       </li>
+      </ul>
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer class="footer">
+   <div class="footer__container">
+    <p class="footer__text">© 2026 Oleh Rozhanskyi</p>
+   </div>
+  </footer>
+  <script type="module" src="./src/main.js"></script>
+ </body>
+</html>
