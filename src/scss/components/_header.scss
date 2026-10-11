@@ -14,7 +14,7 @@
   justify-content: space-between;
   align-items: center;
   gap: var(--gap-lg);
-  min-height: rem(80);
+  min-height: var(--header-height);
   border-radius: 0 0 var(--radius-lg) var(--radius-lg);
   padding-block: var(--gap-md);
   border-bottom: 1px solid var(--glass-border);
@@ -55,7 +55,7 @@
   align-items: center;
   overflow-y: auto;
   visibility: hidden;
-  padding: rem(150) 0 rem(30);
+  padding: calc(var(--header-height) + var(--gap-2xl)) 0 var(--gap-xl);
   background-color: var(--glass-bg-strong);
   backdrop-filter: blur(var(--glass-blur));
   transform: translateX(100%);
@@ -81,8 +81,8 @@
    flex-flow: column nowrap;
    justify-content: flex-start;
    align-items: center;
-   row-gap: rem(32);
-   margin-bottom: rem(30);
+   row-gap: var(--gap-xl);
+   margin-bottom: var(--gap-xl);
   }
  }
 
@@ -100,7 +100,7 @@
   }
 
   @include bm {
-   font-size: rem(24);
+   font-size: var(--text-lg);
   }
  }
 }
@@ -137,15 +137,21 @@
   }
 
   &::before {
-   transform: translateY(rem(7)) rotate(45deg);
+   transform: translateY(rem(6)) rotate(45deg);
   }
 
   &::after {
-   transform: translateY(rem(-7)) rotate(-45deg);
+   transform: translateY(rem(-6)) rotate(-45deg);
   }
  }
 
  @include bm {
   display: flex;
+ }
+}
+
+@include bm {
+ body:has(.burger-btn[aria-expanded='true']) {
+  overflow: hidden;
  }
 }
