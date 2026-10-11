@@ -5,12 +5,9 @@
  --color-900: #1a1a2e;
  --color-600: #374151;
  --color-300: #d1d5db;
- --color-100: #f3f4f6;
  --color-white: #fff;
  --color-accent: #4f46e5;
  --color-accent-dark: #4338ca;
- --color-danger: #ef4444;
- --color-success: #22c55e;
  --bg-base: #eef1f8;
  --bg-spot-1: rgb(99 102 241 / 45%);
  --bg-spot-2: rgb(167 139 250 / 40%);
@@ -21,9 +18,9 @@
  --glass-blur: #{rem(15)};
  --font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
  --font-mono: ui-monospace, 'SF Mono', menlo, monospace;
- --text-3xl: #{rem(48)};
- --text-2xl: #{rem(36)};
- --text-xl: #{rem(30)};
+ --text-3xl: #{fluid(36, 48, $small-mobile, $desktop)};
+ --text-2xl: #{fluid(28, 36, $small-mobile, $desktop)};
+ --text-xl: #{fluid(24, 30, $small-mobile, $desktop)};
  --text-lg: #{rem(24)};
  --text-md: #{rem(20)};
  --text-base: #{rem(18)};
