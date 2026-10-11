@@ -2,17 +2,27 @@ export function menuBurger() {
  const burgerButton = document.querySelector('.burger-btn')
  if (!burgerButton) return
  const menuLinks = document.querySelectorAll('.menu__list-link')
+ const main = document.querySelector('.main')
+ const footer = document.querySelector('.footer')
+ // Дублює змінну bm з _variables.scss
+ const mobileQuery = window.matchMedia('(width <= 47.99875rem)')
 
  function isMenuOpen() {
   return burgerButton.getAttribute('aria-expanded') === 'true'
  }
 
+ function setMenuOpen(isOpen) {
+  burgerButton.setAttribute('aria-expanded', isOpen)
+  main.inert = isOpen
+  footer.inert = isOpen
+ }
+
  function closeMenu() {
-  burgerButton.setAttribute('aria-expanded', false)
+  setMenuOpen(false)
  }
 
  burgerButton.addEventListener('click', () => {
-  burgerButton.setAttribute('aria-expanded', !isMenuOpen())
+  setMenuOpen(!isMenuOpen())
  })
 
  menuLinks.forEach(link => {
@@ -25,4 +35,6 @@ export function menuBurger() {
    burgerButton.focus()
   }
  })
+
+ mobileQuery.addEventListener('change', closeMenu)
 }
