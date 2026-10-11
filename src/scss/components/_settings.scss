@@ -8,9 +8,9 @@ html {
 
 body {
  position: relative;
- overflow-x: clip;
  min-height: 100vh;
  margin: 0;
+ overflow-x: clip;
  font-family: var(--font-family);
  font-size: var(--text-base);
  font-weight: 400;
@@ -21,12 +21,12 @@ body {
   position: fixed;
   inset: 0;
   z-index: -1;
+  content: '';
   background-color: var(--bg-base);
   background-image:
    radial-gradient(circle at 15% 25%, var(--bg-spot-1), transparent 45%),
    radial-gradient(circle at 85% 15%, var(--bg-spot-2), transparent 45%),
    radial-gradient(circle at 60% 85%, var(--bg-spot-3), transparent 50%);
-  content: '';
  }
 }
 
@@ -37,17 +37,17 @@ body {
 
 .visually-hidden {
  position: absolute !important;
- overflow: hidden !important;
- clip-path: inset(50%) !important;
  width: 1px !important;
  height: 1px !important;
- margin: 1px !important;
  padding: 0 !important;
+ margin: 1px !important;
+ overflow: hidden !important;
  white-space: nowrap !important;
  border: 0 !important;
 
  // prettier-ignore
  clip: rect(0 0 0 0)!important; /* stylelint-disable-line property-no-deprecated */
+ clip-path: inset(50%) !important;
 }
 
 /* Загальний стиль для всіх веб-кіт браузерів */
