@@ -11,23 +11,29 @@ import sharp from 'sharp'
 
 const defaults = {
  formats: ['avif', 'webp'],
- quality: 70,
+ // та сама цифра дає різну якість: AVIF 50 на око ≈ WebP/JPEG 75, а файл менший
+ quality: { avif: 50, webp: 75, jpeg: 75, png: 75 },
  outputDir: 'assets/images',
 }
 
 export function imgToPicture(userOptions = {}) {
- const options = { ...defaults, ...userOptions }
- // джерело → варіанти: картинку з кількох сторінок обробляємо й пишемо один раз
+ const options = {
+  ...defaults,
+  ...userOptions,
+  quality: { ...defaults.quality, ...userOptions.quality },
+ }
+ // джерело → Promise з варіантами. Promise кладемо в кеш одразу: Vite обробляє
+ // сторінки паралельно, і спільну картинку інакше генерували б кілька разів
  const cache = new Map()
  let base = '/'
  let outDir = 'dist'
 
- const makeVariants = async (filePath, displayWidth) => {
-  const key = `${filePath}|${displayWidth}`
-  if (cache.has(key)) return cache.get(key)
-
+ const createVariants = async (filePath, displayWidth) => {
   const source = await fs.readFile(filePath)
-  const { width: sourceWidth } = await sharp(source).metadata()
+  // autoOrient — розміри після EXIF-повороту: фото з телефона часто збережене
+  // «лежачи» з позначкою, що його треба повернути
+  const { autoOrient } = await sharp(source).metadata()
+  const sourceWidth = autoOrient.width
   const fileName = path.basename(filePath)
 
   if (!displayWidth) {
@@ -53,10 +59,12 @@ export function imgToPicture(userOptions = {}) {
 
   const variants = []
   for (const format of [...options.formats, ext]) {
+   const quality = options.quality[format === 'jpg' ? 'jpeg' : format]
    for (const width of widths) {
     const buffer = await sharp(source)
+     .autoOrient()
      .resize({ width, withoutEnlargement: true })
-     .toFormat(format, { quality: options.quality })
+     .toFormat(format, { quality })
      .toBuffer()
     variants.push({
      format,
@@ -67,9 +75,13 @@ export function imgToPicture(userOptions = {}) {
    }
   }
 
-  const result = { display, ext, variants }
-  cache.set(key, result)
-  return result
+  return { display, ext, variants }
+ }
+
+ const makeVariants = (filePath, displayWidth) => {
+  const key = `${filePath}|${displayWidth}`
+  if (!cache.has(key)) cache.set(key, createVariants(filePath, displayWidth))
+  return cache.get(key)
  }
 
  const buildPicture = (tag, { display, ext, variants }) => {
@@ -129,8 +141,9 @@ export function imgToPicture(userOptions = {}) {
   async transform(html, id) {
    if (!id.endsWith('.html')) return null
 
+   // <img\b, а не <img\s: інакше тег, де src іде першим (<img src="...">), пропускався
    const tags = html.match(
-    /<img\s[^>]*\ssrc=["'](?!https?:|data:|\/)[^"']+\.(?:jpe?g|png)["'][^>]*>/gi
+    /<img\b[^>]*\ssrc=["'](?!https?:|data:|\/)[^"']+\.(?:jpe?g|png)["'][^>]*>/gi
    )
    if (!tags) return null
 
@@ -141,22 +154,30 @@ export function imgToPicture(userOptions = {}) {
      path.resolve(path.dirname(id), src),
      displayWidth
     )
-    html = html.replace(tag, buildPicture(tag, data))
+    // функція, а не рядок: у рядку $& чи $' (наприклад, в alt) replace
+    // сприйняв би як шаблон і вставив би шматки сторінки
+    const picture = buildPicture(tag, data)
+    html = html.replace(tag, () => picture)
    }
 
    return { code: html, map: null }
   },
 
   async writeBundle() {
-   const all = [...cache.values()].flatMap(r => r.variants)
-   for (const v of all) {
-    const dest = path.join(outDir, v.file)
+   const results = await Promise.all(cache.values())
+   // та сама картинка з різним width (картка і hero) дає спільні файли — пишемо раз
+   const files = new Map(
+    results.flatMap(r => r.variants).map(v => [v.file, v.buffer])
+   )
+   for (const [file, buffer] of files) {
+    const dest = path.join(outDir, file)
     await fs.mkdir(path.dirname(dest), { recursive: true })
-    await fs.writeFile(dest, v.buffer)
+    await fs.writeFile(dest, buffer)
    }
-   const kib = all.reduce((sum, v) => sum + v.buffer.length, 0) / 1024
+   const images = new Set([...cache.keys()].map(key => key.split('|')[0])).size
+   const kib = [...files.values()].reduce((sum, b) => sum + b.length, 0) / 1024
    console.log(
-    `html-img-to-picture: ${cache.size} картинок → ${all.length} файлів, ${kib.toFixed(0)} KiB`
+    `html-img-to-picture: ${images} картинок → ${files.size} файлів, ${kib.toFixed(0)} KiB`
    )
   },
 

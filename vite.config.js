@@ -65,7 +65,11 @@ export default defineConfig({
    avif: { quality: 70 },
    includePublic: false,
   }),
-  htmlImgToPicture({ formats: ['avif', 'webp'], quality: 70 }),
+  htmlImgToPicture({
+   formats: ['avif', 'webp'],
+   // AVIF при тій самій цифрі важчий, тож для нього нижча (див. коментар у плагіні)
+   quality: { avif: 50, webp: 75, jpeg: 75, png: 75 },
+  }),
   createSvgIconsPlugin({
    iconDirs: [path.resolve(process.cwd(), 'src/images/icons')],
    symbolId: 'icon-[name]',
