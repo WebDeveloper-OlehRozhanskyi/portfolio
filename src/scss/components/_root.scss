@@ -18,9 +18,9 @@
  --glass-blur: #{rem(15)};
  --font-family: system-ui, -apple-system, 'Segoe UI', sans-serif;
  --font-mono: ui-monospace, 'SF Mono', menlo, monospace;
- --text-3xl: #{fluid(36, 48, $small-mobile, $desktop)};
- --text-2xl: #{fluid(28, 36, $small-mobile, $desktop)};
- --text-xl: #{fluid(24, 30, $small-mobile, $desktop)};
+ --text-3xl: #{fluid(36, 48, $bm, $desktop)};
+ --text-2xl: #{fluid(28, 36, $bm, $desktop)};
+ --text-xl: #{fluid(24, 30, $bm, $desktop)};
  --text-lg: #{rem(24)};
  --text-md: #{rem(20)};
  --text-base: #{rem(18)};

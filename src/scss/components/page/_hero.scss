@@ -3,20 +3,13 @@
 .hero {
  // .hero__container
  &__container {
-  display: flex;
-  gap: var(--gap-xl);
-  align-items: center;
-  justify-content: space-between;
+  @include hero-grid;
+
   background-color: var(--glass-bg-strong);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-md);
   backdrop-filter: blur(var(--glass-blur));
-
-  @include t {
-   flex-direction: column;
-   align-items: center;
-  }
  }
 
  // .hero__title
@@ -43,21 +36,14 @@
  &__text {
   @include margin-block;
 
-  max-width: rem(700);
-  font-size: var(--text-lg);
+  margin-bottom: var(--gap-xl);
+  font-size: fluid(18, 24, $bm, $desktop);
   color: var(--color-600);
-
-  @include t {
-   max-width: 100%;
-  }
  }
 
  // .hero__img
  &__img {
   @include image;
-
-  max-height: rem(450);
-  object-fit: cover;
-  border-radius: var(--radius-lg);
+  @include framed-image;
  }
 }

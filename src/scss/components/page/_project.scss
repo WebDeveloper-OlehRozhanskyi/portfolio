@@ -4,11 +4,14 @@
  // .project-hero__container
  &__container {
   @include panel;
+  @include hero-grid;
+ }
 
+ // .project-hero__wrap
+ &__wrap {
   display: flex;
   flex-direction: column;
   gap: var(--gap-md);
-  align-items: flex-start;
  }
 
  // .project-hero__title
@@ -24,7 +27,6 @@
  &__desc {
   @include margin-block;
 
-  max-width: rem(700);
   font-size: var(--text-md);
   color: var(--color-600);
  }
@@ -38,47 +40,15 @@
 
  // .project-hero__link
  &__link {
-  @include link;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: rem(44);
-  padding: var(--gap-sm) var(--gap-lg);
-  font-weight: 600;
-  border: 1px solid var(--color-accent);
-  border-radius: var(--radius-full);
-  transition:
-   color var(--transition),
-   background-color var(--transition),
-   border-color var(--transition);
-
-  @include hover {
-   color: var(--color-white);
-   background-color: var(--color-accent);
-  }
-
-  // .project-hero__link--primary
-  &--primary {
-   color: var(--color-white);
-   background-color: var(--color-accent);
-
-   @include hover {
-    background-color: var(--color-accent-dark);
-    border-color: var(--color-accent-dark);
-   }
+  @include t {
+   flex: 1;
   }
  }
 
  // .project-hero__img
  &__img {
   @include image;
-
-  width: 100%;
-  max-width: rem(720);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  @include framed-image;
  }
 }
 

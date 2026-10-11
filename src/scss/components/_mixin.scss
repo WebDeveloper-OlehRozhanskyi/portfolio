@@ -124,10 +124,10 @@
 }
 
 @mixin split {
- display: flex;
+ display: grid;
+ grid-template-columns: 3fr 7fr;
  gap: var(--gap-xl);
  align-items: start;
- justify-content: space-between;
 
  > :first-child {
   position: sticky;
@@ -139,17 +139,31 @@
   }
  }
 
- > :last-child {
-  width: 70%;
-
-  @include bm {
-   width: 100%;
-  }
+ @include bm {
+  grid-template-columns: 1fr;
  }
+}
+
+// Hero: текст і картинка 50/50, на bm — одна колонка
+@mixin hero-grid {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: var(--gap-xl);
+ align-items: center;
 
  @include bm {
-  flex-direction: column;
+  grid-template-columns: 1fr;
  }
+}
+
+// Картинка в рамці; не ширша за 600px, бо файли 600/1200px
+@mixin framed-image {
+ justify-self: center;
+ width: 100%;
+ max-width: rem(600);
+ border: 1px solid var(--glass-border);
+ border-radius: var(--radius-md);
+ box-shadow: var(--shadow-lg);
 }
 
 @mixin fluid-text(
