@@ -5,7 +5,7 @@ export function menuBurger() {
  const main = document.querySelector('.main')
  const footer = document.querySelector('.footer')
  // Дублює змінну bm з _variables.scss
- const mobileQuery = window.matchMedia('(width <= 47.99875rem)')
+ const mobileQuery = window.matchMedia('(max-width: 47.99875rem)')
 
  function isMenuOpen() {
   return burgerButton.getAttribute('aria-expanded') === 'true'
