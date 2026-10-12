@@ -43,6 +43,10 @@
   background-color: var(--color-accent);
  }
 
+ @include bm {
+  display: flex;
+ }
+
  // .button--primary
  &--primary {
   color: var(--color-white);

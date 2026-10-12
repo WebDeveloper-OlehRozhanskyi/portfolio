@@ -33,15 +33,18 @@
 
  // .project-hero__links
  &__links {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: var(--gap-md);
- }
+  width: fit-content;
 
- // .project-hero__link
- &__link {
   @include t {
-   flex: 1;
+   grid-template-columns: 1fr;
+  }
+
+  @include bm {
+   grid-template-columns: 1fr;
+   width: auto;
   }
  }
 
