@@ -32,11 +32,19 @@
   @include tap-target;
 
   position: relative;
+  flex-wrap: wrap;
+  column-gap: var(--gap-xs);
+  justify-content: center;
   font-weight: 600;
+  text-align: center;
   transition: color var(--transition);
 
   @include hover {
    color: var(--color-accent);
+  }
+
+  @include xsm {
+   flex-direction: column;
   }
 
   // .footer__nav-link--all
@@ -47,10 +55,25 @@
 
   &--prev {
    justify-self: start;
+
+   &::after {
+    order: -1;
+    content: '←';
+    content: '←' / '';
+
+    @include xsm {
+     order: 1;
+    }
+   }
   }
 
   &--next {
    justify-self: end;
+
+   &::after {
+    content: '→';
+    content: '→' / '';
+   }
   }
  }
 
