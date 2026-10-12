@@ -132,7 +132,7 @@
 
 @mixin split {
  display: grid;
- grid-template-columns: 3fr 7fr;
+ grid-template-columns: 2fr 3fr;
  gap: var(--gap-xl);
  align-items: start;
 
@@ -151,10 +151,10 @@
  }
 }
 
-// Hero: текст і картинка 50/50, на bm — одна колонка
+// Hero: текст 3 частини, картинка 2, на bm — одна колонка
 @mixin hero-grid {
  display: grid;
- grid-template-columns: 1fr 1fr;
+ grid-template-columns: 3fr 2fr;
  gap: var(--gap-xl);
  align-items: center;
 
