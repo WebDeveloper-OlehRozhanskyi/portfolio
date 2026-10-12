@@ -33,6 +33,7 @@
  // .header__logo
  &__logo {
   @include link;
+  @include tap-target;
 
   font-size: var(--text-lg);
   font-weight: 700;

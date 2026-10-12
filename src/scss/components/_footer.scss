@@ -29,6 +29,7 @@
  &__nav-link {
   @include link;
   @include hover-line;
+  @include tap-target;
 
   position: relative;
   font-weight: 600;

@@ -115,6 +115,13 @@
  }
 }
 
+// Ціль для пальця: не нижча за 44px (Apple HIG, WCAG 2.5.5), текст по центру висоти
+@mixin tap-target {
+ display: inline-flex;
+ align-items: center;
+ min-height: rem(44);
+}
+
 @mixin panel {
  background-color: var(--glass-bg);
  border: 1px solid var(--glass-border);
